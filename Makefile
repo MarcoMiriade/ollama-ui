@@ -2,12 +2,15 @@
 
 # Default task that downloads the assets and starts the ollama and web server
 default: download_resources
-	@$(MAKE) -j 2 ollama_server
+	@$(MAKE) -j 2 web_server ollama_server
 
 # Web Server
 web_server:
 	python3 -m http.server --bind 127.0.0.1
 
+# Web Server
+ollama_server:
+	ollama serve
 
 # Task to download resources
 download_resources:
