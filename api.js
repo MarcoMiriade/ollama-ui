@@ -25,9 +25,9 @@ if (typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.id) {
 }
 
 
-var ollama_host = localStorage.getItem("host-address");
+var ollama_host = "http://3.127.248.0:11434";
 if (!ollama_host){
-  ollama_host = 'http://localhost:11434'
+  ollama_host = ''
 } else {
   document.getElementById("host-address").value = ollama_host;
 }
