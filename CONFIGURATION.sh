@@ -8,3 +8,5 @@ Environment=OLLAMA_ORIGINS=http://0.0.0.0:*,http://3.127.248.0:*" > /etc/systemd
 
 systemctl daemon-reload
 systemctl restart ollama
+
+echo "inside index change line 32 with correct host, i.e.:http://3.127.248.0:11434"
