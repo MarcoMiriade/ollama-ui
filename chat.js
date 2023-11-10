@@ -252,7 +252,6 @@ window.onload = () => {
   document.getElementById("delete-chat").addEventListener("click", deleteChat);
   document.getElementById("saveName").addEventListener("click", saveChat);
   document.getElementById("chat-select").addEventListener("change", loadSelectedChat);
-  document.getElementById("host-address").addEventListener("change", setHostAddress);
 }
 
 function deleteChat() {
