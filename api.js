@@ -25,12 +25,8 @@ if (typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.id) {
 }
 
 
-var ollama_host = "http://3.127.248.0:11434";
-if (!ollama_host){
-  ollama_host = ''
-} else {
-  document.getElementById("host-address").value = ollama_host;
-}
+var ollama_host = "http://ec2-18-196-103-244.eu-central-1.compute.amazonaws.com:11434";
+
 
 if (rebuildRules){
   rebuildRules(ollama_host);
