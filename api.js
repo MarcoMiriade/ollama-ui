@@ -25,7 +25,7 @@ if (typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.id) {
 }
 
 
-var ollama_host = "http://ec2-18-196-103-244.eu-central-1.compute.amazonaws.com:11434";
+var ollama_host = "http://localhost:11434";
 
 
 if (rebuildRules){

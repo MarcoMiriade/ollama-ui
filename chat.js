@@ -12,8 +12,6 @@ OLLAMA_ORIGINS=${window.location.origin} ollama serve
 Also see: https://github.com/jmorganca/ollama/blob/main/docs/faq.md
 `;
 
-
-
 const clipboardIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
 <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
 <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
@@ -48,7 +46,7 @@ function updateModelInQueryString(model) {
 
 // Fetch available models and populate the dropdown
 async function populateModels() {
-  document.getElementById('send-button').addEventListener('click', submitRequest);
+  
 
   try {
     const data = await getModels();
@@ -102,8 +100,6 @@ const autoResizePadding = new ResizeObserver(() => {
 });
 autoResizePadding.observe(document.getElementById('input-area'));
 
-
-
 // Function to get the selected model
 function getSelectedModel() {
   return document.getElementById('model-select').value;
@@ -146,7 +142,6 @@ document.addEventListener("scroll", (event) => {
   }
   lastKnownScrollPosition = window.scrollY;
 });
-
 
 // Function to handle the user input and call the API functions
 async function submitRequest() {
@@ -242,13 +237,12 @@ document.getElementById('user-input').addEventListener('keydown', function (e) {
   }
 });
 
-
 window.onload = () => {
   updateChatList();
   populateModels();
   adjustPadding();
   autoFocusInput();
-
+  document.getElementById('send-button').addEventListener('click', submitRequest);
   document.getElementById("delete-chat").addEventListener("click", deleteChat);
   document.getElementById("saveName").addEventListener("click", saveChat);
   document.getElementById("chat-select").addEventListener("change", loadSelectedChat);
@@ -256,7 +250,10 @@ window.onload = () => {
 
 function deleteChat() {
   const selectedChat = document.getElementById("chat-select").value;
-  localStorage.removeItem(selectedChat);
+  if(selectedChat != null){
+    localStorage.removeItem(selectedChat);
+  }
+  const history = document.getElementById("chat-history").innerHTML;
   updateChatList();
 }
 
